@@ -1,0 +1,12 @@
+# System / OS
+.DS_Store
+Thumbs.db
+
+# Storage and runtime data
+/storage/
+/snapshots/
+*.tar.gz
+
+# Environment files
+.env
+.env.local
