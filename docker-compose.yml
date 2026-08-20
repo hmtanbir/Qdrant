@@ -14,7 +14,7 @@ services:
       - QDRANT__SERVICE__GRPC_PORT=6334
       - QDRANT__LOG_LEVEL=INFO
       # Uncomment to enable API key authentication:
-      # - QDRANT__SERVICE__API_KEY=your_secure_api_key_here
+      - QDRANT__SERVICE__API_KEY=ChangeMe
     volumes:
       - qdrant_storage:/qdrant/storage
       - qdrant_snapshots:/qdrant/snapshots
