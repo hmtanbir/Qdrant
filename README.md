@@ -99,6 +99,11 @@ Open your browser and visit the Qdrant Web Dashboard:
 http://localhost:6333/dashboard
 ```
 
+> [!NOTE]
+> If `QDRANT__SERVICE__API_KEY` is enabled, pass the key via URL query parameter in the browser:
+> `http://localhost:6333/dashboard?api_key=your_secure_api_key_here`
+> or pass `api-key: your_secure_api_key_here` in HTTP request headers.
+
 ---
 
 ## Configuration & Customization
