@@ -1,0 +1,32 @@
+services:
+  qdrant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hmtanbir/qdrant:latest
+    container_name: qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # HTTP REST API & Web UI
+      - "6334:6334" # gRPC API
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+      - QDRANT__LOG_LEVEL=INFO
+      # Uncomment to enable API key authentication:
+      # - QDRANT__SERVICE__API_KEY=your_secure_api_key_here
+    volumes:
+      - qdrant_storage:/qdrant/storage
+      - qdrant_snapshots:/qdrant/snapshots
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:6333/healthz || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  qdrant_storage:
+    name: qdrant_storage
+  qdrant_snapshots:
+    name: qdrant_snapshots

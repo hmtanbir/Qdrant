@@ -1,0 +1,11 @@
+.git
+.gitignore
+.dockerignore
+*.md
+LICENSE
+docker-compose*.yml
+.DS_Store
+Thumbs.db
+storage/
+snapshots/
+*.tar.gz
